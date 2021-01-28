@@ -111,7 +111,7 @@ defmodule Walkman do
   """
   @spec use_tape(tape_id :: String.t(), test_options(), do: term()) :: :ok
   defmacro use_tape(tape_id, test_options \\ [], do: block) do
-    quote do
+    quote location: :keep do
       options =
         Keyword.merge(unquote(test_options),
           mode: Walkman.mode(),
